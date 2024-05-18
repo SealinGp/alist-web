@@ -3,6 +3,7 @@ import { Router } from "@solidjs/router"
 import { render } from "solid-js/web"
 
 import { Index } from "./app"
+import "./styles/tailwind.css"
 
 declare global {
   interface Window {

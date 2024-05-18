@@ -14,6 +14,7 @@ import {
 import { createStore, produce } from "solid-js/store"
 import { Item } from "./Item"
 import { ResponsiveGrid } from "../common/ResponsiveGrid"
+import { SearchSelect } from "../common/SearchSelect"
 
 interface DriverInfo {
   common: DriverItem[]
@@ -90,11 +91,11 @@ const AddOrEdit = () => {
   })
   const alert = createMemo(() => {
     const i = drivers()[storage.driver]?.config.alert
-    console.log(i)
     if (i) {
       return i.split("|")[0]
     }
   })
+
   return (
     <MaybeLoading
       loading={id ? storageLoading() || driverLoading() : driversLoading()}
@@ -171,6 +172,22 @@ const AddOrEdit = () => {
           </For>
         </Show>
       </ResponsiveGrid>
+      <SearchSelect
+        options={[
+          {
+            label: "选项1",
+            value: "value1",
+          },
+          {
+            label: "选项2",
+            value: "value2",
+          },
+          {
+            label: "选项3",
+            value: "value3",
+          },
+        ]}
+      />
       <Button
         mt="$2"
         loading={okLoading()}
